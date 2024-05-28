@@ -31,7 +31,7 @@ pub async fn mqtt_poll_loop(
             let notification = match conn.poll().await {
                 Ok(event) => event,
                 Err(e) => {
-                    let msg = format!("Unable to poll mqtt: {e}");
+                    let msg = format!("{}: Unable to poll mqtt: {e}", _server.name);
                     return Err(MQTTError::Misc(msg));
                 }
             };
