@@ -74,8 +74,7 @@ async fn main() {
 
 
 
-        tasks.build_task()
-            .name(&server.name.clone())
+        tasks
             .spawn(async move {
             mqtt_poll_loop(server.clone(), cn).await
         });
